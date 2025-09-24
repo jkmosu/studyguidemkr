@@ -234,6 +234,19 @@
         parentFolder: folder
     };
 };
+
+
+    // Aggregated "All Units" view (read-only combined arrays)
+    return {
+        name: `${folder.name} (All Units)`,
+        vocabulary: folder.subfolders.flatMap(sf => sf.vocabulary || []),
+        timeline: folder.subfolders.flatMap(sf => sf.timeline || []),
+        practiceQuestions: folder.subfolders.flatMap(sf => sf.practiceQuestions || []),
+        examples: folder.subfolders.flatMap(sf => sf.examples || []),
+        isAggregated: true,
+        parentFolder: folder
+    };
+};
             
             const renderMath = (element) => {
                 if (window.renderMathInElement) {
